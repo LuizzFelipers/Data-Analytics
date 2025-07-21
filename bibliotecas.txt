@@ -1,0 +1,6 @@
+openpyxl
+pandas
+numpy
+datetime
+streamlit
+plotly.express
