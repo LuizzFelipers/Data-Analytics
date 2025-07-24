@@ -5,27 +5,8 @@ from datetime import datetime
 
 st.set_page_config(page_title="Dashboard Geral",layout='wide')
 st.title("Análise Geral das Empresas de Tradução")
-
-
-caminho_impera = 'C:/Users/luiz.silva/Desktop/TRADUCOES/impera/impera traduções totais.xlsx'
-caminho_fatto = "C:/Users/luiz.silva/Desktop/TRADUCOES/fatto traducoes/traducoes_FATTO_ALL.xlsx"
-caminho_bv = "C:/Users/luiz.silva/Desktop/TRADUCOES/traduções_consolidadas_BV.xlsx"
-    
-df_impera = pd.read_excel(caminho_impera)
-df_fatto = pd.read_excel(caminho_fatto)
-df_bv = pd.read_excel(caminho_bv)
-    
-dfs = [df_impera,df_bv,df_fatto]
-
-#Calculando os Tipos de Documentos mais traduzidos
-
-documentos_traduzidos_impera = df_impera["Tipo de Documento"].value_counts().reset_index(name="Quantidade")
-
-documentos_traduzidos_fatto = df_fatto["Tipo de Documento"].value_counts().reset_index(name="Quantidade")
-
 #Arrumando a coluna do df_bv
 
-df_bv["Tipo de Documento"] = df_bv["Tipo de Documento"].str.lower()
 mapeamento = {
     'procura': 'procuração',
     "procu":"procuração",
@@ -42,9 +23,7 @@ mapeamento = {
     'laudo médico': 'laudo médico'
 }
 
-df_bv['Tipo de Documento'] = df_bv['Tipo de Documento'].replace(mapeamento)
-df_bv.to_excel("bv_traducoes_corrigida.xlsx",index=False)
-documentos_traduzidos_bv = df_bv["Tipo de Documento"].value_counts().reset_index(name="Quantidade")
+
 
 st.sidebar.header("🔍 Filtros")
 
