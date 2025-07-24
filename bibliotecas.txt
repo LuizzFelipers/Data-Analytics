@@ -1,6 +1,6 @@
-openpyxl
 pandas
-numpy
+openpyxl
 datetime
-streamlit
+numpy
 plotly.express
+streamlit
