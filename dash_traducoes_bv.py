@@ -4,13 +4,13 @@ import streamlit as st
 from datetime import datetime
 
 # Configuração da página
-st.set_page_config(page_title="Dashboard de Traduções", layout="wide")
-st.title("📊 Dashboard de Análise de Traduções")
+st.set_page_config(page_title="Dashboard de Traduções BV", layout="wide")
+st.title("📊 Dashboard de Análise de Traduções BV")
 
 # Carregar dados
 @st.cache_data
 def load_data():
-    df = pd.read_excel("C:/Users/luiz.silva/Desktop/TRADUCOES/dashboard_geral/bv_traducoes_corrigida.xlsx")
+    df = pd.read_excel("bv_traducoes_corrigida.xlsx")
     
     # Limpeza e padronização
     df['Tipo de Documento'] = df['Tipo de Documento'].str.lower().str.strip()
